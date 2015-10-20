@@ -1,13 +1,13 @@
 package test.aspectj;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
 
 
     public static void main(String[] args) throws Exception {
-        ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
+        ApplicationContext context = new AnnotationConfigApplicationContext(AspectConfiguration.class);
         TestService testService = (TestService) context.getBean("testService");
         testService.main("valor_parametro");
 

@@ -1,24 +1,22 @@
 package test.aspectj;
 
-//@Aspect
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+
+@Aspect
 public class TestAspectJ {
 
-//    @Pointcut("execution(* TestService.main(..))")
-//    @Pointcut("execution(* main(..) && args(String))")
-    public void mainMethod(String parameter) {
-//        Nunca se ejecuta
-        System.out.println();
-    }
-
-//    @After("mainMethod()")
-    public void doAfter() {
-        System.out.println("TestAspectJ.doAfter");
-    }
-
-//    @Before("mainMethod()")
+    @Before("execution(* main(..))")
     public void doBefore() {
         System.out.println("TestAspectJ.doBefore");
     }
+
+    @After("execution(* main(..))")
+    public void doA() {
+        System.out.println("TestAspectJ.AFTER");
+    }
+
 
 //    @Around("mainMethod()")
  /*   public Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
