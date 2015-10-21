@@ -17,6 +17,10 @@ public class TestAspectJ {
         System.out.println("TestAspectJ.AFTER");
     }
 
+    @Before("execution(* org.springframework.web.client.RestOperations.getForEntity(..))")
+    public void doBeforeRestTemplate() {
+        System.out.println("TestAspectJ.doBeforeRestTemplate");
+    }
 
 //    @Around("mainMethod()")
  /*   public Object doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
